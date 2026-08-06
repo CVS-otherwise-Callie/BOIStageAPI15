@@ -307,6 +307,7 @@ end
 ---@param door GridEntity | Entity
 ---@param spriteData DoorSprite | string | string[]
 function StageAPI.ChangeDoorSprite(door, spriteData)
+
     local sprite1, sprite2
     if door.ToDoor then -- is grid
         door = door:ToDoor()

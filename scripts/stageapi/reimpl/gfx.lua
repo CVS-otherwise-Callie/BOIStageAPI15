@@ -2,6 +2,13 @@ local shared = require("scripts.stageapi.shared")
 
 -- Reimplementation of most base game GridGfx, Backdrops, RoomGfx
 
+-- NOTES:
+-- When using SetStage from shared.Level
+-- or normal level, check that you are
+-- using a ODD number. StageAPI cannot
+-- read even numbers. Putting this out there
+-- for everyone that finds themselves here.
+
 -- Base Game GridGfx
 StageAPI.BaseGridGfx = {}
 
@@ -168,14 +175,14 @@ StageAPI.BaseGridGfx.ScarredWomb:SetDoorSprites{
     Default = {
         [RoomType.ROOM_DEFAULT] = "gfx/grid/door_25_wombdoor.png",
     },
-    Secret = "gfx/grid/door_08_holeinwall_utero.png" -- REPLACE
+    Secret = "gfx/grid/door_08_holeinwall_utero.png"
 }
 StageAPI.BaseGridGfx.ScarredWomb:SetDoorSpawns(StageAPI.BaseDoorSpawnList)
 
 StageAPI.BaseGridGfx.BlueWomb = StageAPI.GridGfx()
 StageAPI.BaseGridGfx.BlueWomb:SetRocks("gfx/grid/rocks_bluewomb.png")
 StageAPI.BaseGridGfx.BlueWomb:SetDecorations("gfx/grid/props_07_the womb_blue.png", "gfx/grid/props_07_the womb.anm2", 43)
-StageAPI.BaseGridGfx.BlueWomb:SetDoorSprites{ -- REPLACE
+StageAPI.BaseGridGfx.BlueWomb:SetDoorSprites{
     Default = {
         [RoomType.ROOM_DEFAULT] = "gfx/grid/door_01_bluewombdoor.png",
     },
@@ -236,9 +243,9 @@ StageAPI.BaseGridGfx.Downpour:SetPits("gfx/grid/grid_pit_downpour.png")
 StageAPI.BaseGridGfx.Downpour:SetDecorations("gfx/grid/props_01x_downpour.png", "gfx/grid/props_01x_downpour.anm2", 20)
 StageAPI.BaseGridGfx.Downpour:SetDoorSprites{
     Default = {
-        [RoomType.ROOM_DEFAULT] = "gfx/grid/door_01_bluewombdoor.png",
+        [RoomType.ROOM_DEFAULT] = "gfx/grid/door_22_cathedraldoor.png",
     },
-    Secret = "gfx/grid/door_08_holeinwall_cathedral.png" -- REPLACE
+    Secret = "gfx/grid/door_08_holeinwall_cathedral.png"
 }
 StageAPI.BaseGridGfx.Downpour:SetDoorSpawns(StageAPI.BaseDoorSpawnList)
 
@@ -248,9 +255,9 @@ StageAPI.BaseGridGfx.Dross:SetPits("gfx/grid/grid_pit_dross.png")
 StageAPI.BaseGridGfx.Dross:SetDecorations("gfx/grid/props_02x_dross.png", "gfx/grid/props_02x_dross.anm2", 30)
 StageAPI.BaseGridGfx.Dross:SetDoorSprites{
     Default = {
-        [RoomType.ROOM_DEFAULT] = "gfx/grid/door_dross.png",
+        [RoomType.ROOM_DEFAULT] = "gfx/grid/door_1y_dross.png",
     },
-    Secret = "gfx/grid/door_08_holeinwall_cathedral.png" -- REPLACE
+    Secret = "gfx/grid/door_08_holeinwall_corpse.png"
 }
 StageAPI.BaseGridGfx.Dross:SetDoorSpawns(StageAPI.BaseDoorSpawnList)
 
@@ -258,26 +265,62 @@ StageAPI.BaseGridGfx.Mines = StageAPI.GridGfx()
 StageAPI.BaseGridGfx.Mines:SetRocks("gfx/grid/rocks_secretroom.png")
 StageAPI.BaseGridGfx.Mines:SetPits("gfx/grid/grid_pit_mines.png")
 StageAPI.BaseGridGfx.Mines:SetDecorations("gfx/grid/props_03x_mines.png", "gfx/grid/props_03x_mines.anm2", 42)
+StageAPI.BaseGridGfx.Mines:SetDoorSprites{
+    Default = {
+        [RoomType.ROOM_DEFAULT] = "gfx/grid/door_01_minesdoor.png",
+    },
+    Secret = "gfx/grid/door_08_holeinwall_depths.png"
+}
+StageAPI.BaseGridGfx.Mines:SetDoorSpawns(StageAPI.BaseDoorSpawnList)
+
 
 StageAPI.BaseGridGfx.Ashpit = StageAPI.GridGfx()
 StageAPI.BaseGridGfx.Ashpit:SetRocks("gfx/grid/rocks_ashpit.png")
 StageAPI.BaseGridGfx.Ashpit:SetPits("gfx/grid/grid_pit_ashpit.png", "gfx/grid/grid_pit_ashpit_ash.png")
 StageAPI.BaseGridGfx.Ashpit:SetDecorations("gfx/grid/props_03x_mines.png", "gfx/grid/props_03x_mines.anm2", 42)
+StageAPI.BaseGridGfx.Mines:SetDoorSprites{
+    Default = {
+        [RoomType.ROOM_DEFAULT] = "gfx/grid/door_01_minesdoor.png",
+    },
+    Secret = "gfx/grid/door_08_holeinwall_depths.png" -- REPLACE
+}
+StageAPI.BaseGridGfx.Mines:SetDoorSpawns(StageAPI.BaseDoorSpawnList)
 
 StageAPI.BaseGridGfx.Mausoleum = StageAPI.GridGfx()
 StageAPI.BaseGridGfx.Mausoleum:SetRocks("gfx/grid/rocks_mausoleum.png")
 StageAPI.BaseGridGfx.Mausoleum:SetPits("gfx/grid/grid_pit_mausoleum.png")
 StageAPI.BaseGridGfx.Mausoleum:SetDecorations("gfx/grid/props_03x_mines.png", "gfx/grid/props_03x_mines.anm2", 42)
+StageAPI.BaseGridGfx.Mausoleum:SetDoorSprites{
+    Default = {
+        [RoomType.ROOM_DEFAULT] = "gfx/grid/door_01_mausoleumdoor.png",
+    },
+    Secret = "gfx/grid/door_08_holeinwall_depths.png" -- REPLACE
+}
+StageAPI.BaseGridGfx.Mausoleum:SetDoorSpawns(StageAPI.BaseDoorSpawnList)
 
 StageAPI.BaseGridGfx.Gehenna = StageAPI.GridGfx()
 StageAPI.BaseGridGfx.Gehenna:SetRocks("gfx/grid/rocks_gehenna.png")
 StageAPI.BaseGridGfx.Gehenna:SetPits("gfx/grid/grid_pit_gehenna.png")
 StageAPI.BaseGridGfx.Gehenna:SetDecorations("gfx/grid/props_03x_mines.png", "gfx/grid/props_03x_mines.anm2", 42)
+StageAPI.BaseGridGfx.Gehenna:SetDoorSprites{
+    Default = {
+        [RoomType.ROOM_DEFAULT] = "gfx/grid/door_01_gehennadoor.png",
+    },
+    Secret = "gfx/grid/door_08_holeinwall_depths.png" -- REPLACE
+}
+StageAPI.BaseGridGfx.Gehenna:SetDoorSpawns(StageAPI.BaseDoorSpawnList)
 
 StageAPI.BaseGridGfx.Corpse = StageAPI.GridGfx()
 StageAPI.BaseGridGfx.Corpse:SetRocks("gfx/grid/rocks_corpse.png")
 StageAPI.BaseGridGfx.Corpse:SetPits("gfx/grid/grid_pit_corpse.png")
 StageAPI.BaseGridGfx.Corpse:SetDecorations("gfx/grid/props_07_the corpse.png", "gfx/grid/props_07_the corpse.anm2", 42)
+StageAPI.BaseGridGfx.Corpse:SetDoorSprites{
+    Default = {
+        [RoomType.ROOM_DEFAULT] = "gfx/grid/door_01_corpsedoor.png",
+    },
+    Secret = "gfx/grid/door_08_holeinwall_corpse.png" -- REPLACE
+}
+StageAPI.BaseGridGfx.Corpse:SetDoorSpawns(StageAPI.BaseDoorSpawnList)
 
 StageAPI.BaseRoomGfx = {
     Basement = StageAPI.RoomGfx(BackdropType.BASEMENT, StageAPI.BaseGridGfx.Basement, "_default"),
